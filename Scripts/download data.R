@@ -10,6 +10,10 @@ library(lubridate)
 library(glue)
 library(xml2)
 
+###########
+#Acc Funcs#
+###########
+
 #########
 #Globals#
 #########
