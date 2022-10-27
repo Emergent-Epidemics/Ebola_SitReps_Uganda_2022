@@ -42,7 +42,8 @@ extract_data <- function(data_split, data_start, data_stop, recoveries = FALSE){
     }
     
     if(recoveries == FALSE){
-      data.j <- c(data.j[1:length(data.j)-1], NA, data.j[length(data.j)-1])
+      last.data.point.j <- data.j[length(data.j)]
+      data.j <- c(data.j[1:length(data.j)-1], NA, last.data.point.j)
     }
     if(! length(data.j) %in% c(5, 6)){
       stop("I too many or too few data points")
@@ -87,8 +88,13 @@ for(i in 10:length(files)){
     failed <- c(failed, i)
     next()
   }
-  find_data_start.i <- find_data_2.i[2]
   
+  
+  find_data_start.i <- find_data_2.i[2]
+  if(length(grep(pattern = "Cases", x = data_split.i.2[[find_data_start.i+1]], ignore.case = TRUE)) > 0){
+    find_data_start.i <- find_data_start.i + 1
+  }
+    
   find_data_stop.i <- grep(pattern = "Total", x = data_split.i.2, ignore.case = TRUE)
   if(length(find_data_stop.i) == 0){
     failed <- c(failed, i)
@@ -104,8 +110,7 @@ for(i in 10:length(files)){
   
   data_out.i <- extract_data(data_split = data_split.i.2, data_start = find_data_start.i, data_stop = find_data_stop.i, recoveries = do_recovery)
   
-  data_out.i$ID <- paste0(1:nrow(data_out.i), "-SitRep-", i+10) 
-  data_out.i$SitRep <- rep(i, nrow(data_out.i))
+  data_out.i$SitRep <- rep(i+10, nrow(data_out.i))
   data_out.i$Date <- rep(as.character(dates[i+10]), nrow(data_out.i))
   data_out.i$Date_Entered <- as.character(Sys.time())
   data_out.i$Collector <- "Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022"
