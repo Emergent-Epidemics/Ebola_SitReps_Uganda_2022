@@ -1,17 +1,17 @@
-District,Sub-County,Confirmed Cases,Confirmed Deaths,Recoveries,Probable Deaths,SitRep,Date,Date_Entered,Collector
-Mubende,Madudu,17,7,NA,13,28,2022-10-18,2022-10-27,SVS
-Mubende,Eastern,7,1,NA,0,28,2022-10-18,2022-10-27,SVS
-Mubende,Southern,6,3,NA,0,28,2022-10-18,2022-10-27,SVS
-Mubende,Bageza,1,1,NA,1,28,2022-10-18,2022-10-27,SVS
-Mubende,Western,2,1,NA,0,28,2022-10-18,2022-10-27,SVS
-Mubende,Kasambya,5,0,NA,0,28,2022-10-18,2022-10-27,SVS
-Mubende,Kibalinga,1,1,NA,0,28,2022-10-18,2022-10-27,SVS
-Mubende,Kiruuma,7,3,NA,5,28,2022-10-18,2022-10-27,SVS
-Mubende,Kitenga,1,0,NA,0,28,2022-10-18,2022-10-27,SVS
-Mubende,Butologo,1,1,NA,0,28,2022-10-18,2022-10-27,SVS
-Mubende,Kiyuni,3,3,NA,0,28,2022-10-18,2022-10-27,SVS
-Kyegegwa,Kasule,3,1,NA,0,28,2022-10-18,2022-10-27,SVS
-Kassanda,Kassanda,3,1,NA,1,28,2022-10-18,2022-10-27,SVS
-Kassanda,Kalwana,1,0,NA,0,28,2022-10-18,2022-10-27,SVS
-Kagadi,Kagadi TC,1,1,NA,0,28,2022-10-18,2022-10-27,SVS
-Bunyangabu,Rwimi TC,1,0,NA,0,28,2022-10-18,2022-10-27,SVS
+District,Sub-County,Confirmed Cases,Confirmed Deaths,Recoveries,Probable Deaths,Probable Cases,SitRep,Date,Date_Entered,Collector
+Mubende,Madudu,17,7,NA,13,NA,28,2022-10-18,2022-10-27,SVS
+Mubende,Eastern,7,1,NA,0,NA,28,2022-10-18,2022-10-27,SVS
+Mubende,Southern,6,3,NA,0,NA,28,2022-10-18,2022-10-27,SVS
+Mubende,Bageza,1,1,NA,1,NA,28,2022-10-18,2022-10-27,SVS
+Mubende,Western,2,1,NA,0,NA,28,2022-10-18,2022-10-27,SVS
+Mubende,Kasambya,5,0,NA,0,NA,28,2022-10-18,2022-10-27,SVS
+Mubende,Kibalinga,1,1,NA,0,NA,28,2022-10-18,2022-10-27,SVS
+Mubende,Kiruuma,7,3,NA,5,NA,28,2022-10-18,2022-10-27,SVS
+Mubende,Kitenga,1,0,NA,0,NA,28,2022-10-18,2022-10-27,SVS
+Mubende,Butologo,1,1,NA,0,NA,28,2022-10-18,2022-10-27,SVS
+Mubende,Kiyuni,3,3,NA,0,NA,28,2022-10-18,2022-10-27,SVS
+Kyegegwa,Kasule,3,1,NA,0,NA,28,2022-10-18,2022-10-27,SVS
+Kassanda,Kassanda,3,1,NA,1,NA,28,2022-10-18,2022-10-27,SVS
+Kassanda,Kalwana,1,0,NA,0,NA,28,2022-10-18,2022-10-27,SVS
+Kagadi,Kagadi TC,1,1,NA,0,NA,28,2022-10-18,2022-10-27,SVS
+Bunyangabu,Rwimi TC,1,0,NA,0,NA,28,2022-10-18,2022-10-27,SVS

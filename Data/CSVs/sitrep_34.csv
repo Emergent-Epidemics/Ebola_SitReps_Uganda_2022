@@ -1,26 +1,26 @@
-District,Sub-County,Confirmed Cases,Confirmed Deaths,Recoveries,Probable Deaths,SitRep,Date,Date_Entered,Collector
-Bunyangabu,Rwimi TC,1,0,NA,0,34,2022-10-24,2022-10-27,SVS
-Kagadi,Kagadi TC,1,1,NA,0,34,2022-10-24,2022-10-27,SVS
-Kassanda,,3,,,,34,2022-10-24,2022-10-27,SVS
-Kassanda,Kalwana,1,0,NA,0,34,2022-10-24,2022-10-27,SVS
-Kassanda,Kassanda,2,0,NA,1,34,2022-10-24,2022-10-27,SVS
-Kassanda,Kikandwa,5,2,NA,0,34,2022-10-24,2022-10-27,SVS
-Kassanda,Kiganda,1,0,NA,0,34,2022-10-24,2022-10-27,SVS
-Kassanda,Gomba,1,0,NA,0,34,2022-10-24,2022-10-27,SVS
-Kyegegwa,Kasule,3,1,NA,0,34,2022-10-24,2022-10-27,SVS
-Wakiso,Nanssana,1,0,NA,0,34,2022-10-24,2022-10-27,SVS
-Kampala,Rubaga,11,0,NA,0,34,2022-10-24,2022-10-27,SVS
-Kampala,Kawempe,2,0,NA,0,34,2022-10-24,2022-10-27,SVS
-Kampala,Makindye,1,0,NA,0,34,2022-10-24,2022-10-27,SVS
-Mubende,,2,,,,34,2022-10-24,2022-10-27,SVS
-Mubende,Bagezza,2,1,NA,0,34,2022-10-24,2022-10-27,SVS
-Mubende,Butologo,1,1,NA,0,34,2022-10-24,2022-10-27,SVS
-Mubende,Eastern,8,1,NA,0,34,2022-10-24,2022-10-27,SVS
-Mubende,Western,2,2,NA,0,34,2022-10-24,2022-10-27,SVS
-Mubende,Southern,7,3,NA,1,34,2022-10-24,2022-10-27,SVS
-Mubende,Kasambya,5,1,NA,0,34,2022-10-24,2022-10-27,SVS
-Mubende,Kiruuma,9,4,NA,5,34,2022-10-24,2022-10-27,SVS
-Mubende,Kiyuni,3,3,NA,0,34,2022-10-24,2022-10-27,SVS
-Mubende,Madudu,21,7,NA,13,34,2022-10-24,2022-10-27,SVS
-Mubende,Kibalinga,1,1,NA,0,34,2022-10-24,2022-10-27,SVS
-Mubende,Kitenga,1,0,NA,0,34,2022-10-24,2022-10-27,SVS
+District,Sub-County,Confirmed Cases,Confirmed Deaths,Recoveries,Probable Deaths,Probably Cases,SitRep,Date,Date_Entered,Collector
+Bunyangabu,Rwimi TC,1,0,NA,NA,0,34,2022-10-24,2022-10-27,SVS
+Kagadi,Kagadi TC,1,1,NA,NA,0,34,2022-10-24,2022-10-27,SVS
+Kassanda,,3,,NA,NA,,34,2022-10-24,2022-10-27,SVS
+Kassanda,Kalwana,1,0,NA,NA,0,34,2022-10-24,2022-10-27,SVS
+Kassanda,Kassanda,2,0,NA,NA,1,34,2022-10-24,2022-10-27,SVS
+Kassanda,Kikandwa,5,2,NA,NA,0,34,2022-10-24,2022-10-27,SVS
+Kassanda,Kiganda,1,0,NA,NA,0,34,2022-10-24,2022-10-27,SVS
+Kassanda,Gomba,1,0,NA,NA,0,34,2022-10-24,2022-10-27,SVS
+Kyegegwa,Kasule,3,1,NA,NA,0,34,2022-10-24,2022-10-27,SVS
+Wakiso,Nanssana,1,0,NA,NA,0,34,2022-10-24,2022-10-27,SVS
+Kampala,Rubaga,11,0,NA,NA,0,34,2022-10-24,2022-10-27,SVS
+Kampala,Kawempe,2,0,NA,NA,0,34,2022-10-24,2022-10-27,SVS
+Kampala,Makindye,1,0,NA,NA,0,34,2022-10-24,2022-10-27,SVS
+Mubende,,2,,NA,NA,,34,2022-10-24,2022-10-27,SVS
+Mubende,Bagezza,2,1,NA,NA,0,34,2022-10-24,2022-10-27,SVS
+Mubende,Butologo,1,1,NA,NA,0,34,2022-10-24,2022-10-27,SVS
+Mubende,Eastern,8,1,NA,NA,0,34,2022-10-24,2022-10-27,SVS
+Mubende,Western,2,2,NA,NA,0,34,2022-10-24,2022-10-27,SVS
+Mubende,Southern,7,3,NA,NA,1,34,2022-10-24,2022-10-27,SVS
+Mubende,Kasambya,5,1,NA,NA,0,34,2022-10-24,2022-10-27,SVS
+Mubende,Kiruuma,9,4,NA,NA,5,34,2022-10-24,2022-10-27,SVS
+Mubende,Kiyuni,3,3,NA,NA,0,34,2022-10-24,2022-10-27,SVS
+Mubende,Madudu,21,7,NA,NA,13,34,2022-10-24,2022-10-27,SVS
+Mubende,Kibalinga,1,1,NA,NA,0,34,2022-10-24,2022-10-27,SVS
+Mubende,Kitenga,1,0,NA,NA,0,34,2022-10-24,2022-10-27,SVS

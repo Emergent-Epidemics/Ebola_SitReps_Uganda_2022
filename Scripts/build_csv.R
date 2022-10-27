@@ -12,11 +12,11 @@ library(glue)
 ###########
 #Acc Funcs#
 ###########
-extract_data <- function(data_split, data_start, data_stop, recoveries = FALSE){
+extract_data <- function(data_split, data_start, data_stop, recoveries = FALSE, probable_cases = FALSE, probable_deaths = FALSE){
   first_data_row <- data_start+1
   last_data_row <- data_stop-1
-  data.out <- matrix(NA, ncol = 6, nrow = 1)
-  colnames(data.out) <- c("District", "Sub-County", "Confirmed Cases", "Confirmed Deaths", "Recoveries", "Probable Deaths")
+  data.out <- matrix(NA, ncol = 7, nrow = 1)
+  colnames(data.out) <- c("District", "Sub-County", "Confirmed Cases", "Confirmed Deaths", "Recoveries", "Probable Deaths", "Probable Cases")
   data.out <- as.data.frame(data.out)
   
   for(j in first_data_row:last_data_row){
@@ -45,10 +45,19 @@ extract_data <- function(data_split, data_start, data_stop, recoveries = FALSE){
       last.data.point.j <- data.j[length(data.j)]
       data.j <- c(data.j[1:length(data.j)-1], NA, last.data.point.j)
     }
-    if(! length(data.j) %in% c(5, 6)){
+    
+    if(probable_deaths == FALSE){
+      last.data.point.j <- data.j[length(data.j)]
+      data.j <- c(data.j[1:length(data.j)-1], NA, last.data.point.j)
+    }
+    
+    if(probable_cases == FALSE){
+      data.j <- c(data.j, NA)
+    }
+    if(! length(data.j) %in% c(6, 7)){
       stop("I too many or too few data points")
     }
-    if(length(data.j) == 5){
+    if(length(data.j) == 6){
       data.j <- c(NA, data.j)
     }
     data.out <- rbind(data.out, data.j)
@@ -118,7 +127,19 @@ for(i in 10:length(files)){
     do_recovery <- FALSE
   }
   
-  data_out.i <- extract_data(data_split = data_split.i.2, data_start = find_data_start.i, data_stop = find_data_stop.i, recoveries = do_recovery)
+  if(i < 23){
+    do_probable_cases <- FALSE
+    do_probable_deaths <- TRUE
+  }else{
+    do_probable_cases <- TRUE
+    do_probable_deaths <- FALSE
+  }
+  
+  if(i == 25){
+    find_data_start.i <- find_data_start.i + 1
+  }
+  
+  data_out.i <- extract_data(data_split = data_split.i.2, data_start = find_data_start.i, data_stop = find_data_stop.i, recoveries = do_recovery, probable_cases = do_probable_cases, probable_deaths = do_probable_deaths)
   
   data_out.i$SitRep <- rep(i+10, nrow(data_out.i))
   data_out.i$Date <- rep(as.character(dates[i+10]), nrow(data_out.i))
