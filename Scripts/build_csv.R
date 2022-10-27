@@ -77,7 +77,12 @@ for(i in 10:length(files)){
   pdf.i <- pdf_text(file.i)
   data_split.i <- strsplit(pdf.i, "\n")
   
-  find_data.i <- grep(pattern = "Summary of Confirmed Cases and probable deaths by Sub-County", x = data_split.i, ignore.case = TRUE)
+  if(i < 22){
+    find_data.i <- grep(pattern = "Summary of Confirmed Cases and probable deaths by Sub-County", x = data_split.i, ignore.case = TRUE)
+  }else{
+    find_data.i <- grep(pattern = "Summary of Cases updates by Sub-county", x = data_split.i, ignore.case = TRUE)
+  }
+
   if(length(find_data.i) != 1){
     failed <- c(failed, i)
     next()
@@ -95,7 +100,12 @@ for(i in 10:length(files)){
     find_data_start.i <- find_data_start.i + 1
   }
     
-  find_data_stop.i <- grep(pattern = "Total", x = data_split.i.2, ignore.case = TRUE)
+  if(i < 22){
+    find_data_stop.i <- grep(pattern = "Total", x = data_split.i.2, ignore.case = TRUE)
+  }else{
+    find_data_stop.i <- grep(pattern = "harmonisation", x = data_split.i.2, ignore.case = TRUE)
+  }
+  
   if(length(find_data_stop.i) == 0){
     failed <- c(failed, i)
     next()
