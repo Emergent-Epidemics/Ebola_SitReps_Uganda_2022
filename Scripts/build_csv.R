@@ -117,7 +117,7 @@ for(i in 10:length(files)){
   
   data_full[[i]] <- data_out.i
   if(save_new == TRUE){
-    write.csv(data_out.i, file = paste0("../Data/CSVs/sitrep_", i+10, ".csv"), row.names = FALSE, quote = FALSE)
+    write.csv(data_out.i, file = paste0("../Data/tmp/sitrep_", i+10, ".csv"), row.names = FALSE, quote = FALSE)
   }
 }
 
