@@ -16,10 +16,17 @@ library(xml2)
 start <- as.POSIXct(strptime("2022-09-21", format = "%Y-%m-%d"))
 end <- as.POSIXct(strptime(substr(Sys.time(), 1, 10), format = "%Y-%m-%d")) 
 reports <- 1:as.numeric(end - start) #reports 1 - 9 and 11 are not online
+get_new <- TRUE
 
 ###############
 #Download PDFs#
 ###############
+if(get_new == TRUE){
+  already_downloaded <- list.files("../Data/PDFs/")
+  rm_pdf <- gsub(pattern = ".pdf", replacement = "", x = already_downloaded)
+  rm_reports <- as.numeric(rm_pdf)
+  reports <- reports[-rm_reports]
+}
 
 pb <- txtProgressBar(1, length(reports), style=3)
 missed <- c()
