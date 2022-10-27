@@ -11,7 +11,7 @@ It's critical to point out that we haven't yet performed proper validation on th
 2. SitReps 10 - 18 only contain country-wide data.
 3. Regional information on cases begins for SitRep 19, which means that SitRep 20 is the first where line list cases can be disaggregated by region. That is Oct 9th, 2022.
 4. Data were hand curated prior to SitRep 20.
-5. Ebola_SitReps_Uganda_2022/Data/CSVs/Ebola SitReps Uganda Baseline.csv contains the hand-curated line-list through SitRep 20. 
+5. Ebola_SitReps_Uganda_2022/Data/Ebola SitReps Uganda Baseline.csv contains the hand-curated line-list through SitRep 20. 
 6. Automated linelist curation begins with cases reported in SitReps 21 (Oct 10th, 2022)
 7. SitReps 22, 28, 31, 32, and 34 were hand curated. This is noted in the CSVs.
 8. SitRep 22 couldn't be digitized.
