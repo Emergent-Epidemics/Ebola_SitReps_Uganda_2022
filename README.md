@@ -1,7 +1,11 @@
-# Uganda Ebola SitReps
-We are digitizing the daily SitReps from the Ebola outbreak in Uganda [here](https://www.afro.who.int/countries/publications?country=879).
+# Uganda Ebola SitReps and Line List
+We are digitizing the daily SitReps from the Ebola outbreak in Uganda [here](https://www.afro.who.int/countries/publications?country=879). The most current line list from the processed SitReps is location in Data/Current Line List.
 
 It's critical to point out that we haven't yet performed proper validation on these data and would very much welcome contributors who are either interested in suggesting code changes, validating data, and/or contributing new data sets. In addition, please see the specific license, warranty, and copyright information for our code and each individual data set.
+
+## Known issues with the list list
+1. As of Oct 25th, SitRep 35, the Uganda MoH reports 109 confirmed cases. The line list currently has 107.
+2. As of Oct 25th, there were five instances where changes in the SitRep indicate that a previously reported, confirmed case was in fact not an Ebola case. These are a cases are: "Kassanda, Kassanda in SitRep 29", "Mubende, Kasambya in SitRep 30",  "Kassanda, Kalwana in SitRep 33",  "KassandaKassanda in SitRep 35", "Kassanda, Kikandwa in SitRep 35"
 
 ## Running the code
 1. You need to create a directory in Data called "tmp" in order to run the script build_csv.R
