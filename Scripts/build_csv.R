@@ -146,6 +146,24 @@ for(i in 10:length(files)){
   data_out.i$Date_Entered <- as.character(Sys.time())
   data_out.i$Collector <- "Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022"
   
+  dupe_test.i <- table(data_out.i$`Sub-County`)
+  rm_division <- which(names(dupe_test.i) == "Division")
+  if(length(rm_division) > 0){
+    dupe_test.i <- dupe_test.i[-rm_division]
+  }
+  if(length(which(dupe_test.i > 1)) > 0){
+    if(max(dupe_test.i) > 2){
+      stop("More duplications than I expected")
+    }
+    dupes.i <- which(dupe_test.i > 1)
+    for(d in 1:length(dupes.i)){
+      mt_dupe.d <- which(data_out.i$`Sub-County` == names(dupes.i)[d])
+      
+      data_out.i[mt_dupe.d[1],c("Confirmed Cases", "Confirmed Deaths", "Recoveries", "Probable Deaths", "Probable Cases")] <- colSums(rbind(as.numeric(data_out.i[mt_dupe.d[1],c("Confirmed Cases", "Confirmed Deaths", "Recoveries", "Probable Deaths", "Probable Cases")]),  as.numeric(data_out.i[mt_dupe.d[2],c("Confirmed Cases", "Confirmed Deaths", "Recoveries", "Probable Deaths", "Probable Cases")])), na.rm = TRUE)  
+      data_out.i <- data_out.i[-mt_dupe.d[1],]
+    }
+  }
+  
   data_full[[i]] <- data_out.i
   if(save_new == TRUE){
     write.csv(data_out.i, file = paste0("../Data/tmp/sitrep_", i+10, ".csv"), row.names = FALSE, quote = FALSE)

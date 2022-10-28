@@ -1,5 +1,5 @@
 # Uganda Ebola SitReps and Line List
-We are digitizing the daily SitReps from the Ebola outbreak in Uganda [here](https://www.afro.who.int/countries/publications?country=879). The most current line list from the processed SitReps is location in Data/Current Line List.
+We are digitizing the daily SitReps from the Ebola outbreak in Uganda [here](https://www.afro.who.int/countries/publications?country=879). The most current line list from the processed SitReps is location in Data/Line List. However, we're storing all the generated line lists, so choose the one with the most recent date.
 
 It's critical to point out that we haven't yet performed proper validation on these data and would very much welcome contributors who are either interested in suggesting code changes, validating data, and/or contributing new data sets. In addition, please see the specific license, warranty, and copyright information for our code and each individual data set.
 
