@@ -8,6 +8,8 @@
 library(pdftools)
 library(lubridate)
 library(glue)
+library(maptools)
+library(rgdal)
 
 ###########
 #Acc Funcs#
@@ -66,6 +68,60 @@ extract_data <- function(data_split, data_start, data_stop, recoveries = FALSE, 
   return(data.out.final)
 }
 
+match_subcounties <- function(subcounty_sitrep, subcounty_shp){
+  subcounty_vect <- toupper(subcounty_sitrep$`Sub-County`)
+  subcounty_vect[which(subcounty_vect == "BUTOLOGO")] <- "BUTOLOOGO"
+  subcounty_vect[which(subcounty_vect == "BAYEZA")] <- "BAGEZZA"
+  subcounty_vect[which(subcounty_vect == "BAGEZA")] <- "BAGEZZA"
+  subcounty_vect[which(subcounty_vect == "NANSSANA")] <- "NANSANA"
+  subcounty_official <- subcounty_shp$Subcounty
+  subcounty_official <- gsub(pattern = " DIVISION", replacement = "", x = subcounty_shp$Subcounty)
+  county_official <- subcounty_shp$County
+  
+  district <- rep(NA, length(subcounty_vect))
+  county <- rep(NA, length(subcounty_vect))
+  subcounty <- rep(NA, length(subcounty_vect))
+  for(m in 1:length(subcounty_vect)){
+    subcount.m <- subcounty_vect[m]
+    if(subcount.m %in% c("KIRUUMA", "KIRWANYI")){
+      district[m] <- "MUBENDE"
+      county[m] <- NA
+      subcounty[m] <- subcount.m
+      next()
+    }
+    subcount.m <- gsub(pattern = " TC", replacement = "", x = subcount.m)
+    mt.m <- which(subcounty_official == subcount.m)
+    if(length(mt.m) == 0){
+      mt.m <- which(county_official == subcount.m)
+      mt.m <- mt.m[1]
+      district[m] <- subcounty_shp$District[mt.m]
+      county[m] <- subcounty_shp$County[mt.m]
+      next()
+    }
+    if(length(mt.m) != 1){
+      if(mt.m[1] == 1311 & subcount.m == "KASSANDA"){
+        mt.m <- mt.m[1]
+      }else{
+        if(subcount.m %in% c("EASTERN", "WESTERN", "SOUTHERN", "KASAMBYA")){
+          mt.m <- mt.m[which(subcounty_shp$District[mt.m] == "MUBENDE")]
+        }else{
+          stop("Multiple sub-county mathces")
+        }
+      }
+    }
+    district[m] <- subcounty_shp$District[mt.m]
+    county[m] <- subcounty_shp$County[mt.m]
+    subcounty[m] <- subcounty_shp$Subcounty[mt.m]
+  }
+  test.m <- which(is.na(subcounty) == TRUE & ! subcounty_vect %in% c("GOMBA", "BUSIRO"))
+  if(length(test.m) > 0){
+    stop("Missed matching at least one sub-county")
+  }
+  dat.out <- data.frame(district, county, subcounty)
+  colnames(dat.out) <- c("DISTRICT", "COUNTY", "SUBCOUNTY")
+  return(dat.out)
+}
+
 #########
 #Globals#
 #########
@@ -74,6 +130,7 @@ end <- as.POSIXct(strptime(substr(Sys.time(), 1, 10), format = "%Y-%m-%d"))
 dates <- seq(start, end, by = 60*60*24)
 files <- list.files("../Data/PDFs/")
 save_new <- TRUE
+subcounties <- readOGR("../Data/subcounties_2019/subcounties_2019.shp")
 
 ###################
 #Loop through PDFs#
@@ -135,11 +192,16 @@ for(i in 10:length(files)){
     do_probable_deaths <- FALSE
   }
   
-  if(i == 25){
+  if(i > 19){
     find_data_start.i <- find_data_start.i + 1
   }
+
   
   data_out.i <- extract_data(data_split = data_split.i.2, data_start = find_data_start.i, data_stop = find_data_stop.i, recoveries = do_recovery, probable_cases = do_probable_cases, probable_deaths = do_probable_deaths)
+  
+  #correct division misplacement
+  find_subcount_div.i <- grep(pattern = "division", x = data_out.i$`Sub-County`, ignore.case = TRUE)
+  data_out.i$`Sub-County`[find_subcount_div.i] <- data_out.i$District[find_subcount_div.i]
   
   data_out.i$SitRep <- rep(i+10, nrow(data_out.i))
   data_out.i$Date <- rep(as.character(dates[i+10]), nrow(data_out.i))
@@ -163,6 +225,8 @@ for(i in 10:length(files)){
       data_out.i <- data_out.i[-mt_dupe.d[1],]
     }
   }
+  match_subcounties.i <- match_subcounties(subcounty_sitrep = data_out.i, subcounty_shp = subcounties)
+  data_out.i <- data.frame(data_out.i, match_subcounties.i)
   
   data_full[[i]] <- data_out.i
   if(save_new == TRUE){
