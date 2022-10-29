@@ -130,6 +130,7 @@ end <- as.POSIXct(strptime(substr(Sys.time(), 1, 10), format = "%Y-%m-%d"))
 dates <- seq(start, end, by = 60*60*24)
 files <- list.files("../Data/PDFs/")
 save_new <- TRUE
+auto_run <- TRUE
 subcounties <- readOGR("../Data/subcounties_2019/subcounties_2019.shp")
 
 ###################
@@ -230,7 +231,11 @@ for(i in 10:length(files)){
   
   data_full[[i]] <- data_out.i
   if(save_new == TRUE){
-    write.csv(data_out.i, file = paste0("../Data/tmp/sitrep_", i+10, ".csv"), row.names = FALSE, quote = FALSE)
+    if(auto_run == TRUE & i %in% success){
+      write.csv(data_out.i, file = paste0("../Data/CSVs/sitrep_", i+10, ".csv"), row.names = FALSE, quote = FALSE)
+    }else{
+      write.csv(data_out.i, file = paste0("../Data/tmp/sitrep_", i+10, ".csv"), row.names = FALSE, quote = FALSE)
+    }
   }
 }
 

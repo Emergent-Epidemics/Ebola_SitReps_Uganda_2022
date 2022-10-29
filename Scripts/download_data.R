@@ -34,6 +34,7 @@ if(get_new == TRUE){
 
 pb <- txtProgressBar(1, length(reports), style=3)
 missed <- c()
+success <- c()
 for(i in reports){
   file.i <- paste0("https://www.afro.who.int/countries/uganda/publication/ebola-virus-disease-uganda-sitrep-", i)
   
@@ -43,6 +44,8 @@ for(i in reports){
     missed <- c(missed, i)
     setTxtProgressBar(pb, i)
     next()
+  }else{
+    success <- c(success, i)
   }
   
   split.i <- strsplit(x = html.i, split = "[ ]")
