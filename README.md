@@ -4,6 +4,8 @@ We are digitizing the daily SitReps from the Ebola outbreak in Uganda that are b
 It's critical to point out that we haven't yet performed proper validation on these data and would very much welcome contributors who are either interested in suggesting code changes, validating data, and/or contributing new data sets. In addition, please see the specific license, warranty, and copyright information for our code and each individual data set.
 
 ## Known issues with the list list
+*IMPORTANT* - Current version of the line list only tracks confirmed cases (not deaths or probable cases/deaths).
+
 1. As of Oct 25th, SitRep 35, the Uganda MoH reports 109 confirmed cases. The line list currently has 107.
 2. As of Oct 25th, there were five instances where changes in the SitRep indicate that a previously reported, confirmed case was in fact not an Ebola case. These are a cases are: "Kassanda, Kassanda in SitRep 29", "Mubende, Kasambya in SitRep 30",  "Kassanda, Kalwana in SitRep 33",  "KassandaKassanda in SitRep 35", "Kassanda, Kikandwa in SitRep 35"
 3. Gomba and Busiro are listed as sub-counties, but do not appear as sub-counties in the government shapefile and are not listed as sub-counties online. 
@@ -29,7 +31,7 @@ It's critical to point out that we haven't yet performed proper validation on th
 9. SitRep 28 has a different format than all other SitReps. In addition, you can tell the death reported in SitRep 28 occurred in Kiganda, Kassanda District despite the SitRep only listing Kassanda district because the following SitRep (29) reports no new deaths, but includes a death in Kiganda, Kassanda District not reported in the SitRep prior to 28 (i.e., 27). 
 10. SitRep 31 had a bespoke format. Unfortunately, the three cases reported in Mubende cannot be place in sub-county, because SitRep 32 also did not contain sub-country information, but reported new cases in Mubende as well.
 11. SitRep 32 also had a bespoke format and had cases in Mubende that could not be place in sub-counties.
-12. SitRep 32 reports a death in Entebbe and a case in Wakiso. These were treated as separate even though Entebbe is in Wakiso.
+12. SitRep 32 reports a death in Entebbe and a case in Wakiso. These were treated as separate even though Entebbe is in Wakiso. The death was not previously reported as a case, so we marked both a case and a death so that the case would appear in the line list.
 13. SitRep 34 is missing a PDF, but does report cases on the html page for the WHO. However, cases were only reported at the District level.
 
 # Additional license, warranty, and copyright information

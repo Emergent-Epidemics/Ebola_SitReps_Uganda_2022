@@ -1,26 +1,26 @@
-District,Sub-County,Confirmed Cases,Confirmed Deaths,Recoveries,Probable Deaths,Probable Cases,SitRep,Date,Date_Entered,Collector
-Bunyangabu,Rwimi TC,1,0,NA,NA,0,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Kagadi,Kagadi TC,1,1,NA,NA,0,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Kampala,Kawempe,2,0,NA,NA,0,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Kampala,Makindye,1,0,NA,NA,0,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Kampala,Rubaga,14,1,NA,NA,0,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Kassanda,Gomba,1,0,NA,NA,0,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Kassanda,Kalwana,17,0,NA,NA,0,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Kassanda,Kassanda,5,0,NA,NA,2,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Kassanda,Kiganda,2,0,NA,NA,0,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Kassanda,Kikandwa,3,2,NA,NA,0,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Kyegegwa,Kasule,3,1,NA,NA,0,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Mubende,Bagezza,2,2,NA,NA,0,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Mubende,Butologo,1,1,NA,NA,0,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Mubende,Eastern,8,1,NA,NA,0,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Mubende,Southern,7,3,NA,NA,1,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Mubende,Western,3,1,NA,NA,0,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Mubende,Kasambya,5,1,NA,NA,0,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Mubende,Kiruuma,10,4,NA,NA,5,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Mubende,Kirwanyi,1,0,NA,NA,0,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Mubende,Kiyuni,3,3,NA,NA,0,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Mubende,Madudu,21,10,NA,NA,13,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Mubende,Kibalinga,1,1,NA,NA,0,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Mubende,Kitenga,1,0,NA,NA,0,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Wakiso,Busiro,1,0,NA,NA,0,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
-Wakiso,Nansana,1,0,NA,NA,0,36,2022-10-26,2022-10-28 08:57:17,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022
+District,Sub.County,Confirmed.Cases,Confirmed.Deaths,Recoveries,Probable.Deaths,Probable.Cases,SitRep,Date,Date_Entered,Collector,DISTRICT,COUNTY,SUBCOUNTY
+Bunyangabu,Rwimi TC,01,00,NA,NA,00,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,BUNYANGABU,BUNYANGABU,RWIMI
+Kagadi,Kagadi TC,01,01,NA,NA,00,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,KAGADI,BUYAGA,KAGADI
+Kampala,Kawempe,02,00,NA,NA,00,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,KAMPALA,KCCA,KAWEMPE DIVISION
+NA,Makindye,01,00,NA,NA,00,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,KAMPALA,KCCA,MAKINDYE DIVISION
+NA,Rubaga,14,01,NA,NA,00,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,KAMPALA,KCCA,RUBAGA DIVISION
+Kassanda,Gomba,01,00,NA,NA,00,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,GOMBA,GOMBA,NA
+NA,Kalwana,17,00,NA,NA,00,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,KASSANDA,KASSANDA,KALWANA
+NA,Kassanda,05,00,NA,NA,02,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,KASSANDA,KASSANDA,KASSANDA
+NA,Kiganda,02,00,NA,NA,00,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,KASSANDA,KASSANDA,KIGANDA
+NA,Kikandwa,03,02,NA,NA,00,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,MITYANA,MITYANA,KIKANDWA
+Kyegegwa,Kasule,03,01,NA,NA,00,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,KYEGEGWA,KYAKA,KASULE
+Mubende,Bagezza,02,02,NA,NA,00,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,MUBENDE,KASAMBYA,BAGEZZA
+NA,Butologo,01,01,NA,NA,00,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,MUBENDE,BUWEKULA,BUTOLOOGO
+Eastern,Eastern,08,01,NA,NA,00,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,MUBENDE,MUBENDE MUNICIPALITY,EASTERN DIVISION
+Southern,Southern,07,03,NA,NA,01,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,MUBENDE,MUBENDE MUNICIPALITY,SOUTHERN DIVISION
+Western,Western,03,01,NA,NA,00,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,MUBENDE,MUBENDE MUNICIPALITY,WESTERN DIVISION
+NA,Kasambya,05,01,NA,NA,00,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,MUBENDE,KASAMBYA,KASAMBYA
+NA,Kiruuma,10,04,NA,NA,05,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,MUBENDE,NA,KIRUUMA
+NA,Kirwanyi,01,00,NA,NA,00,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,MUBENDE,NA,KIRWANYI
+NA,Kiyuni,03,03,NA,NA,00,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,MUBENDE,BUWEKULA,KIYUNI
+NA,Madudu,21,10,NA,NA,13,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,MUBENDE,BUWEKULA,MADUDU
+NA,Kibalinga,01,01,NA,NA,00,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,MUBENDE,KASAMBYA,KIBALINGA
+NA,Kitenga,01,00,NA,NA,00,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,MUBENDE,BUWEKULA,KITENGA
+Wakiso,Busiro,01,00,NA,NA,00,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,WAKISO,BUSIRO,NA
+NA,Nansana,01,00,NA,NA,00,36,2022-10-26,2022-10-29 12:58:48,Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022,WAKISO,NANSANA MUNICIPALITY,NANSANA DIVISION
