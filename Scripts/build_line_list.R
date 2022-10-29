@@ -15,9 +15,10 @@ add_new_cases <- function(baselinelist, sitrep, row_to_add, sitrep_number, N){
     baselinelist <- rbind(baselinelist, add.n)
     baselinelist$ID[nrow(baselinelist)] <- baselinelist$ID[nrow(baselinelist)-1] + 1
     baselinelist$Pathogen[nrow(baselinelist)] <- "Ebola virus"
-    baselinelist$Pathogen_status[nrow(baselinelist)] <- "Confirmed"
-    baselinelist$Location[nrow(baselinelist)] <- sitrep$District[row_to_add]
-    baselinelist$Sub_Region[nrow(baselinelist)] <- sitrep$Sub.County[row_to_add]
+    baselinelist$Case_status[nrow(baselinelist)] <- "Confirmed"
+    baselinelist$District[nrow(baselinelist)] <- sitrep$DISTRICT[row_to_add]
+    baselinelist$County[nrow(baselinelist)] <- sitrep$COUNTY[row_to_add]
+    baselinelist$Sub.County[nrow(baselinelist)] <- sitrep$SUBCOUNTY[row_to_add]
     baselinelist$Country[nrow(baselinelist)] <- "Uganda"
     baselinelist$Date_confirmation[nrow(baselinelist)] <- sitrep$Date[row_to_add]
     baselinelist$Source[nrow(baselinelist)] <- paste0("https://www.afro.who.int/countries/uganda/publication/ebola-virus-disease-uganda-sitrep-", sitrep_number)
@@ -45,8 +46,8 @@ for(i in 2:length(files)){
   sitrepnumber.i <- gsub(pattern = "sitrep_", replacement = "", x = sitrepnumber.i)
   sitrepnumber.i <- gsub(pattern = ".csv", replacement = "", x = sitrepnumber.i)
   
-  locs_base.i <- paste0(basesitrep$District, basesitrep$Sub.County)
-  locs_sit.i <- paste0(sitrep.i$District, sitrep.i$Sub.County)
+  locs_base.i <- paste0(basesitrep$DISTRICT, basesitrep$COUNTY, basesitrep$SUBCOUNTY)
+  locs_sit.i <- paste0(sitrep.i$DISTRICT, sitrep.i$COUNTY, sitrep.i$SUBCOUNTY)
   
   for(j in 1:length(locs_sit.i)){
     mt.j <- which(locs_sit.i[j] == locs_base.i)
