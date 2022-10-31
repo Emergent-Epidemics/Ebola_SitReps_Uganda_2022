@@ -10,10 +10,6 @@ library(lubridate)
 library(glue)
 library(xml2)
 
-###########
-#Acc Funcs#
-###########
-
 #########
 #Globals#
 #########
@@ -21,6 +17,11 @@ start <- as.POSIXct(strptime("2022-09-21", format = "%Y-%m-%d"))
 end <- as.POSIXct(strptime(substr(Sys.time(), 1, 10), format = "%Y-%m-%d")) 
 reports <- 1:as.numeric(end - start) #reports 1 - 9 and 11 are not online
 get_new <- TRUE
+
+###########
+#Acc Funcs#
+###########
+
 
 ###############
 #Download PDFs#
@@ -44,8 +45,6 @@ for(i in reports){
     missed <- c(missed, i)
     setTxtProgressBar(pb, i)
     next()
-  }else{
-    success <- c(success, i)
   }
   
   split.i <- strsplit(x = html.i, split = "[ ]")
@@ -58,6 +57,8 @@ for(i in reports){
   try.i <- try(download.file(url = pdf_site.i_subhref, destfile = dest.i), silent = TRUE)
   if(length(grep("error", try.i, ignore.case = TRUE)) > 0){
     missed <- c(missed, i)
+  }else{
+    success <- c(success, paste0(i, ".pdf"))
   }
   setTxtProgressBar(pb, i)
 }

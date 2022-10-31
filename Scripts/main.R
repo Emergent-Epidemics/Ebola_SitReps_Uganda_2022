@@ -26,7 +26,9 @@ source("build_line_list.R")
 if(do_plot == TRUE){
   rm_NA_district <- which(is.na(baselinelist$District) == TRUE)
   baselinelist$count <- 1
-  plot_dat <- baselinelist[-rm_NA_district,] %>% group_by(Date_confirmation, District, count) %>% summarise(n = sum(count))
+  plot_dat <- baselinelist[-rm_NA_district,] %>% group_by(District) %>% arrange(Date_confirmation) %>% mutate(cumsum=cumsum(count))
   
+  ggplot(data = plot_dat, aes(x = as.Date(Date_confirmation), y = cumsum, group = District, color = District)) + geom_line() + facet_wrap(~District) + xlab("Daily new Ebola cases") + ylab("Daily new Ebola cases") + theme(legend.position = "none", legend.key = element_rect(fill = "#f0f0f0"), legend.background = element_rect(fill = "#ffffffaa", colour = "black"), panel.background = element_rect(fill = "white", colour = "black"), axis.text.y = element_text(colour = "black", size = 14), axis.text.x = element_text(colour = "black", size = 10), axis.title = element_text(colour = "black", size = 16), panel.grid.minor = element_line(colour = "#00000080",linetype = 3), panel.grid.major = element_line(colour = "#00000000", linetype = 3)) 
   
   ggplot(data = baselinelist, aes(x = as.Date(Date_confirmation), fill = District)) + geom_bar() + facet_wrap(~District) + xlab("Daily new Ebola cases") + ylab("Daily new Ebola cases") + theme(legend.position = "none", legend.key = element_rect(fill = "#f0f0f0"), legend.background = element_rect(fill = "#ffffffaa", colour = "black"), panel.background = element_rect(fill = "white", colour = "black"), axis.text.y = element_text(colour = "black", size = 14), axis.text.x = element_text(colour = "black", size = 10), axis.title = element_text(colour = "black", size = 16), panel.grid.minor = element_line(colour = "#00000080",linetype = 3), panel.grid.major = element_line(colour = "#00000000", linetype = 3)) 
+}

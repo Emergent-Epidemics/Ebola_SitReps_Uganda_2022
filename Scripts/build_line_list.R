@@ -6,6 +6,13 @@
 #libraries#
 ###########
 
+#########
+#Globals#
+#########
+files <- list.files("../Data/CSVs")
+time_stamp <- format(Sys.time(), "%m-%d-%Y")
+save_new <- TRUE
+
 ###########
 #Acc Funcs#
 ###########
@@ -27,12 +34,6 @@ add_new_cases <- function(baselinelist, sitrep, row_to_add, sitrep_number, N){
   }
   return(baselinelist)
 }
-  
-#########
-#Globals#
-#########
-files <- list.files("../Data/CSVs")
-save_new <- TRUE
 
 ###################
 #Loop through CSVs#
@@ -72,6 +73,7 @@ for(i in 2:length(files)){
 }
 
 if(save_new == TRUE){
-  time_stamp <- format(Sys.time(), "%m-%d-%Y")
+  write.csv(baselinelist, file = paste0("../Data/Line lists/",time_stamp,"_uganda_ebola_2022_linelist.csv"), row.names = FALSE, quote = FALSE)
+}else{
   write.csv(baselinelist, file = paste0("../Data/tmp/",time_stamp,"_uganda_ebola_2022_linelist.csv"), row.names = FALSE, quote = FALSE)
 }
