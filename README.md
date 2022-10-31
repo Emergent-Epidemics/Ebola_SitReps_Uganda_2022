@@ -6,8 +6,9 @@ It's critical to point out that we haven't yet performed proper validation on th
 ## Known issues with the list list
 *IMPORTANT* - Current version of the line list only tracks confirmed cases (not deaths or probable cases/deaths).
 
-1. As of Oct 27th, SitRep 35, the Uganda MoH reports 120 confirmed cases. The line list currently has 128.
-2. As of Oct 27th, there were four instances where changes in the SitRep indicate that a previously reported, confirmed case was in fact not an Ebola case. These are a cases are: "Kassanda, Kassanda in SitRep 29", "Mubende, Kasambya in SitRep 30",  "Kassanda, Kalwana in SitRep 33",  and "Kassanda, Kikandwa in SitRep 35". That leaves a discrepancy of four cases not recorded in the line list. These are almost certainly deaths that were not previously reported as cases as we aren't tracking those yet.
+1. Prior to Oct 31st, the line lists contained date errors. These were not back corrected, so line lists prior to 10-31-2022 are incorrect. 
+2. As of Oct 31st, SitRep 38, the Uganda MoH reports 128 confirmed cases. The line list currently has 131.
+2. As of Oct 31st, there were four instances where changes in the SitRep indicate that a previously reported, confirmed case was in fact not an Ebola case. These are a cases are: "Kassanda, Kassanda in SitRep 29", "Mubende, Kasambya in SitRep 30",  "Kassanda, Kalwana in SitRep 33",  and "Kassanda, Kikandwa in SitRep 35". That leaves a discrepancy of four cases not recorded in the line list. These are almost certainly deaths that were not previously reported as cases as we aren't tracking those yet.
 3. Gomba and Busiro are listed as sub-counties, but do not appear as sub-counties in the government shapefile and are not listed as sub-counties online. 
 4. Kiruuma and Kirwanyi are not listed a sub-counties in the government shapefile, but are listed as sub-counties in Mubende on the [Mubende gov. website](https://mubende.go.ug/lg/political-and-administrative-structure). For these two we do not have a county identified, but list them as Mubende district.
 5. There are multiple sub-counties for Kasambya, and the Eastern, Western, and Southern Districts. Currently, these are all mapped to Mubende.

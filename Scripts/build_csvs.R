@@ -14,13 +14,20 @@ library(rgdal)
 #########
 #Globals#
 #########
-start <- as.POSIXct(strptime("2022-09-21", format = "%Y-%m-%d"))
+start <- as.POSIXct(strptime("2022-09-20", format = "%Y-%m-%d"))
 end <- as.POSIXct(strptime(substr(Sys.time(), 1, 10), format = "%Y-%m-%d")) 
 dates <- seq(start, end, by = 60*60*24)
 files <- list.files("../Data/PDFs/")
 save_new <- TRUE
 auto_run <- TRUE
 subcounties <- readOGR("../Data/subcounties_2019/subcounties_2019.shp")
+
+#some dates are skipped
+skip1 <- which(dates == as.POSIXct(strptime("2022-10-15", format = "%Y-%m-%d")))
+dates <- dates[-skip1]
+
+skip2 <- which(dates == as.POSIXct(strptime("2022-10-28", format = "%Y-%m-%d")))
+dates <- dates[-skip2]
 
 ###########
 #Acc Funcs#
@@ -161,7 +168,6 @@ for(i in 10:length(files)){
     next()
   }
   
-  
   find_data_start.i <- find_data_2.i[2]
   if(length(grep(pattern = "Cases", x = data_split.i.2[[find_data_start.i+1]], ignore.case = TRUE)) > 0){
     find_data_start.i <- find_data_start.i + 1
@@ -205,7 +211,10 @@ for(i in 10:length(files)){
   data_out.i$`Sub-County`[find_subcount_div.i] <- data_out.i$District[find_subcount_div.i]
   
   data_out.i$SitRep <- rep(i+10, nrow(data_out.i))
-  data_out.i$Date <- rep(as.character(dates[i+10]), nrow(data_out.i))
+  
+  date.i <- as.character(dates[i+10])
+  
+  data_out.i$Date <- rep(date.i, nrow(data_out.i))
   data_out.i$Date_Entered <- as.character(Sys.time())
   data_out.i$Collector <- "Automated Script - https://github.com/Emergent-Epidemics/Ebola_SitReps_Uganda_2022"
   
