@@ -6,9 +6,10 @@ It's critical to point out that we haven't yet performed proper validation on th
 ## Known issues with the list list
 *IMPORTANT* - Current version of the line list only tracks confirmed cases (not deaths or probable cases/deaths).
 
-1. Prior to Oct 31st, the line lists contained date errors. These were not back corrected, so line lists prior to 10-31-2022 are incorrect. 
-2. As of Oct 31st, SitRep 38, the Uganda MoH reports 128 confirmed cases. The line list currently has 131.
-2. As of Oct 31st, there were four instances where changes in the SitRep indicate that a previously reported, confirmed case was in fact not an Ebola case. These are a cases are: "Kassanda, Kassanda in SitRep 29", "Mubende, Kasambya in SitRep 30",  "Kassanda, Kalwana in SitRep 33",  and "Kassanda, Kikandwa in SitRep 35". That leaves a discrepancy of four cases not recorded in the line list. These are almost certainly deaths that were not previously reported as cases as we aren't tracking those yet.
+1. Prior to Oct 31st, the line lists contained date errors. These were not back corrected, so line lists prior to 10-31-2022 have some incorrect dates. These errors will cause inflated growth rate estimates. 
+2. The Kikandwa sub-county is listed as MITYANA (District)	MITYANA (County)	KIKANDWA (Sub-county) in the government shapefile. However, all SitReps report Kikandwa as being in the Kassanda district. There is no other Kikandwa sub-county listed in the shapefile. For now, we map to the shapefile and place Kikandwa in Mityana district. 
+3. As of Oct 31st, SitRep 40, the Uganda MoH reports 130 confirmed cases. The line list currently has 133.
+2. As of Oct 31st, SitRep 40, there were four instances where changes in the SitRep indicate that a previously reported, confirmed case was in fact not an Ebola case. These are a cases are: "Kassanda, Kassanda in SitRep 29", "Mubende, Kasambya in SitRep 30",  "Kassanda, Kalwana in SitRep 33",  and "Kassanda, Kikandwa in SitRep 35". That leaves a discrepancy of four cases not recorded in the line list. These are almost certainly deaths that were not previously reported as cases as we aren't tracking those yet.
 3. Gomba and Busiro are listed as sub-counties, but do not appear as sub-counties in the government shapefile and are not listed as sub-counties online. 
 4. Kiruuma and Kirwanyi are not listed a sub-counties in the government shapefile, but are listed as sub-counties in Mubende on the [Mubende gov. website](https://mubende.go.ug/lg/political-and-administrative-structure). For these two we do not have a county identified, but list them as Mubende district.
 5. There are multiple sub-counties for Kasambya, and the Eastern, Western, and Southern Districts. Currently, these are all mapped to Mubende.
@@ -16,6 +17,8 @@ It's critical to point out that we haven't yet performed proper validation on th
 7. Prior to SitRep 25, Bageza sub-county in Mubende was listed at Bayeza. We have mapped everything to Bageza. As best as we can tell, there does not appear to be a Bayeza in Uganda. 
 8. The gov. shapefile lists a Bagezza, Mubende, but not a Bageza. The Mubende website spells the sub-county Bageza, which is the spelling listed in the SitRep. We map to Bagezza to match the shapefile. 
 9. In SitRep 33, a Nanssana, Wakiso appears, but that sub-county isn't present in the shapefile. In SitRep 35, that changes to Nansana, Wakiso, which is in the shapefile. We map to Nansana.
+10. SitRep 39 does not contain information on sub-county. There was one case in Kassanda in SitRep 39 and another in SitRep 40. Based on SitRep 40, which does contain sub-county information, the case reported in SitRep 39 was either in Kalwana or Kikandwa. We put the case in SitRep 39 in Kalwana.
+11. In SitRep 40, there is a sub-county spelled BUTOLOGOA. This is almost certainly a misspelling of BUTOLOGO, as this sub-county does not appear in SitRep 40. We correct BUTOLOGOA -> BUTOLOGO and map to BUTOLOOGO.
 
 ## Running the code
 1. You need to create a directory in Data called "tmp" in order to run the script build_csv.R

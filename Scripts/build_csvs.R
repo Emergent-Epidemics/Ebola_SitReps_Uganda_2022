@@ -89,6 +89,7 @@ extract_data <- function(data_split, data_start, data_stop, recoveries = FALSE, 
 match_subcounties <- function(subcounty_sitrep, subcounty_shp){
   subcounty_vect <- toupper(subcounty_sitrep$`Sub-County`)
   subcounty_vect[which(subcounty_vect == "BUTOLOGO")] <- "BUTOLOOGO"
+  subcounty_vect[which(subcounty_vect == "BUTOLOGOA")] <- "BUTOLOOGO" #misspelling in sitrep40
   subcounty_vect[which(subcounty_vect == "BAYEZA")] <- "BAGEZZA"
   subcounty_vect[which(subcounty_vect == "BAGEZA")] <- "BAGEZZA"
   subcounty_vect[which(subcounty_vect == "NANSSANA")] <- "NANSANA"
@@ -151,7 +152,7 @@ for(i in 10:length(files)){
   pdf.i <- pdf_text(file.i)
   data_split.i <- strsplit(pdf.i, "\n")
   
-  if(i < 22){
+  if(i < 22|i==30){
     find_data.i <- grep(pattern = "Summary of Confirmed Cases and probable deaths by Sub-County", x = data_split.i, ignore.case = TRUE)
   }else{
     find_data.i <- grep(pattern = "Summary of Cases updates by Sub-county", x = data_split.i, ignore.case = TRUE)
@@ -185,7 +186,7 @@ for(i in 10:length(files)){
   }
   find_data_stop.i <- find_data_stop.i[1]
   
-  if(i == 10){
+  if(i == 10 | i == 30){
     do_recovery <- TRUE
   }else{
     do_recovery <- FALSE
