@@ -36,7 +36,7 @@ if(do_plot == TRUE){
   
   ggplot(data = plot_dat_country, aes(x = Date_confirmation, y = log10(cumsum))) + geom_line(size = 1) + xlab(" ") + ylab("Cumulative Ebola cases (log-scale)") + theme(legend.position = "none", legend.key = element_rect(fill = "#f0f0f0"), legend.background = element_rect(fill = "#ffffffaa", colour = "black"), panel.background = element_rect(fill = "white", colour = "black"), axis.text.y = element_text(colour = "black", size = 14), axis.text.x = element_text(colour = "black", size = 10), axis.title = element_text(colour = "black", size = 16), panel.grid.minor = element_line(colour = "#00000080",linetype = 3), panel.grid.major = element_line(colour = "#00000000", linetype = 3)) + geom_smooth(method = "lm", linetype = "dashed", size = 0.5, color = "#4d4d4d")
   
-  ggplot(data = baselinelist, aes(x = as.Date(Date_confirmation), fill = District)) + geom_bar() + facet_wrap(~District) + xlab("Daily new Ebola cases") + ylab("Daily new Ebola cases") + theme(legend.position = "none", legend.key = element_rect(fill = "#f0f0f0"), legend.background = element_rect(fill = "#ffffffaa", colour = "black"), panel.background = element_rect(fill = "white", colour = "black"), axis.text.y = element_text(colour = "black", size = 14), axis.text.x = element_text(colour = "black", size = 10), axis.title = element_text(colour = "black", size = 16), panel.grid.minor = element_line(colour = "#00000080",linetype = 3), panel.grid.major = element_line(colour = "#00000000", linetype = 3)) 
+  ggplot(data = baselinelist, aes(x = as.Date(Date_confirmation), fill = District)) + geom_bar() + facet_wrap(~District) + xlab("2022") + ylab("Daily new Ebola cases") + theme(legend.position = "none", legend.key = element_rect(fill = "#f0f0f0"), legend.background = element_rect(fill = "#ffffffaa", colour = "black"), panel.background = element_rect(fill = "white", colour = "black"), axis.text.y = element_text(colour = "black", size = 14), axis.text.x = element_text(colour = "black", size = 10), axis.title = element_text(colour = "black", size = 16), panel.grid.minor = element_line(colour = "#00000080",linetype = 3), panel.grid.major = element_line(colour = "#00000000", linetype = 3)) 
   
   time_reg <- as.numeric(plot_dat_district$Date_confirmation - min(plot_dat_district$Date_confirmation, na.rm = TRUE), unit = "days")
   prov_reg <- plot_dat_district$District
@@ -54,13 +54,12 @@ if(do_plot == TRUE){
   mod2 <- lm(log(cases_reg_country) ~ time_reg_country[-c(1:6)])
   doubling_country <- log(2)/mod2$coefficients[2]
   
-  plot(by_date_dates[-c(1:6)], log(cases_reg_country), type = "l", bty = "n", lwd = 3, xlab = "2022", ylab = "Daily new Ebola cases (7 day avg, log-scale)")
-  abline(mod2)
+  plot(by_date_dates[-c(1:6)], cases_reg_country, type = "l", bty = "n", lwd = 3, xlab = "2022", ylab = "Daily new Ebola cases (7 day avg)")
   
   rates <- rep(NA, length(cases_reg_country))
   for(i in 1:(length(cases_reg_country)-3)){
     mod.i <- lm(log(cases_reg_country[i:(i+3)]) ~ time_reg_country[-c(i:6)][i:(i+3)])
-    rates[i] <- log(2)/mod.i$coefficients[2]
+    rates[i] <- mod.i$coefficients[2]
   }
-  plot(by_date_dates[-c(1:6)], rates, type = "l", bty = "n", lwd = 3, xlab = "2022", ylab = "Doubling time (new daily cases)")
+  plot(by_date_dates[-c(1:6)], rates, type = "l", bty = "n", lwd = 3, xlab = "2022", ylab = "Growth rate (new daily cases 7-day avg.)")
 }
