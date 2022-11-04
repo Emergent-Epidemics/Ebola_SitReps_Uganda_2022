@@ -155,7 +155,11 @@ for(i in 10:length(files)){
   if(i < 22|i==30){
     find_data.i <- grep(pattern = "Summary of Confirmed Cases and probable deaths by Sub-County", x = data_split.i, ignore.case = TRUE)
   }else{
-    find_data.i <- grep(pattern = "Summary of Cases updates by Sub-county", x = data_split.i, ignore.case = TRUE)
+    if(i == 32){
+      find_data.i <- grep(pattern = "Summary of Confirmed Cases, Recoveries and Deaths", x = data_split.i, ignore.case = TRUE)
+    }else{
+      find_data.i <- grep(pattern = "Summary of Cases updates by Sub-county", x = data_split.i, ignore.case = TRUE)
+    }
   }
 
   if(length(find_data.i) != 1){
@@ -186,7 +190,7 @@ for(i in 10:length(files)){
   }
   find_data_stop.i <- find_data_stop.i[1]
   
-  if(i == 10 | i == 30){
+  if(i == 10 | i >= 30){
     do_recovery <- TRUE
   }else{
     do_recovery <- FALSE
