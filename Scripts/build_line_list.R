@@ -11,7 +11,7 @@
 #########
 files <- list.files("../Data/CSVs")
 time_stamp <- format(Sys.time(), "%m-%d-%Y")
-save_new <- FALSE
+save_new <- TRUE
 
 ###########
 #Acc Funcs#
