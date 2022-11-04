@@ -204,7 +204,7 @@ for(i in 10:length(files)){
     do_probable_deaths <- FALSE
   }
   
-  if(i > 19){
+  if(i > 19 & i < 30){
     find_data_start.i <- find_data_start.i + 1
   }
 
