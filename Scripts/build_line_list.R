@@ -11,18 +11,25 @@
 #########
 files <- list.files("../Data/CSVs")
 time_stamp <- format(Sys.time(), "%m-%d-%Y")
-save_new <- TRUE
+save_new <- FALSE
 
 ###########
 #Acc Funcs#
 ###########
-add_new_cases <- function(baselinelist, sitrep, row_to_add, sitrep_number, N){
+add_new_cases <- function(baselinelist, sitrep, row_to_add, sitrep_number, N, probable = FALSE){
+  if(is.na(N) == TRUE | N == 0){
+    return(baselinelist)
+  }
   for(n in 1:N){
     add.n <- rep(NA, ncol(baselinelist))
     baselinelist <- rbind(baselinelist, add.n)
     baselinelist$ID[nrow(baselinelist)] <- baselinelist$ID[nrow(baselinelist)-1] + 1
     baselinelist$Pathogen[nrow(baselinelist)] <- "Ebola virus"
-    baselinelist$Case_status[nrow(baselinelist)] <- "Confirmed"
+    if(probable == TRUE){
+      baselinelist$Case_status[nrow(baselinelist)] <- "Probable"
+    }else{
+      baselinelist$Case_status[nrow(baselinelist)] <- "Confirmed"
+    }
     baselinelist$District[nrow(baselinelist)] <- sitrep$DISTRICT[row_to_add]
     baselinelist$County[nrow(baselinelist)] <- sitrep$COUNTY[row_to_add]
     baselinelist$Sub.County[nrow(baselinelist)] <- sitrep$SUBCOUNTY[row_to_add]
@@ -40,7 +47,8 @@ add_new_cases <- function(baselinelist, sitrep, row_to_add, sitrep_number, N){
 ###################
 baselinelist <- read.csv("../Data/Ebola SitReps Uganda Baseline.csv")
 basesitrep <- read.csv(paste0("../Data/CSVs/", files[1]))
-reduce_cases <- c()
+reduce_cases_prob <- c()
+reduce_cases_con <- c()
 for(i in 2:length(files)){
   sitrep.i <- read.csv(paste0("../Data/CSVs/", files[i]))
   sitrepnumber.i <- files[i]
@@ -56,18 +64,34 @@ for(i in 2:length(files)){
       stop("Multiple location matches")
     }
     if(length(mt.j) == 0){
-      baselinelist <- add_new_cases(baselinelist = baselinelist, sitrep = sitrep.i, row_to_add = j, sitrep_number = sitrepnumber.i, N = sitrep.i$Confirmed.Cases[j])
+      baselinelist <- add_new_cases(baselinelist = baselinelist, sitrep = sitrep.i, row_to_add = j, sitrep_number = sitrepnumber.i, N = sitrep.i$Confirmed.Cases[j], probable = FALSE)
+      baselinelist <- add_new_cases(baselinelist = baselinelist, sitrep = sitrep.i, row_to_add = j, sitrep_number = sitrepnumber.i, N = sitrep.i$Probable.Cases[j], probable = TRUE)
       next()
     }
-    diff.ij <- sitrep.i$Confirmed.Cases[j] - basesitrep$Confirmed.Cases[mt.j]
-    if(diff.ij == 0){
+    diff.con.ij <- sitrep.i$Confirmed.Cases[j] - basesitrep$Confirmed.Cases[mt.j]
+    diff.prob.ij <- sitrep.i$Probable.Cases[j] - basesitrep$Probable.Cases[mt.j]
+    if(is.na(diff.prob.ij) == TRUE){
+      diff.prob.ij <- 0
+    }
+    if(diff.con.ij == 0 & diff.prob.ij == 0){
       next()
     }
-    if(diff.ij < 0){
-      reduce_cases <- c(reduce_cases, paste0(locs_sit.i[j], "_", sitrepnumber.i))
-      next()
+    if(diff.con.ij < 0){
+      reduce_cases_con <- c(reduce_cases_con, paste0(locs_sit.i[j], "_", sitrepnumber.i))
+    }else{
+      if(diff.con.ij > 0){
+        baselinelist <- add_new_cases(baselinelist = baselinelist, sitrep = sitrep.i, row_to_add = j, sitrep_number = sitrepnumber.i, N = diff.con.ij, probable = FALSE)
+      }
     }
-    baselinelist <- add_new_cases(baselinelist = baselinelist, sitrep = sitrep.i, row_to_add = j, sitrep_number = sitrepnumber.i, N = diff.ij)
+    
+    if(diff.prob.ij < 0){
+      reduce_cases_prob <- c(reduce_cases_prob, paste0(locs_sit.i[j], "_", sitrepnumber.i))
+    }else{
+      if(diff.prob.ij > 0){
+        baselinelist <- add_new_cases(baselinelist = baselinelist, sitrep = sitrep.i, row_to_add = j, sitrep_number = sitrepnumber.i, N = diff.prob.ij, probable = TRUE)
+      }
+    }
+    
   }
   basesitrep <- sitrep.i
 }
