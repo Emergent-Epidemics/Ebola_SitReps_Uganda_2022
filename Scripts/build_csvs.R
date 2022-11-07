@@ -29,6 +29,9 @@ dates <- dates[-skip1]
 skip2 <- which(dates == as.POSIXct(strptime("2022-10-28", format = "%Y-%m-%d")))
 dates <- dates[-skip2]
 
+skip3 <- which(dates == as.POSIXct(strptime("2022-11-04", format = "%Y-%m-%d")))
+dates <- dates[-skip3]
+
 ###########
 #Acc Funcs#
 ###########
@@ -155,7 +158,7 @@ for(i in 10:length(files)){
   if(i < 22|i==30){
     find_data.i <- grep(pattern = "Summary of Confirmed Cases and probable deaths by Sub-County", x = data_split.i, ignore.case = TRUE)
   }else{
-    if(i == 32){
+    if(i > 31){
       find_data.i <- grep(pattern = "Summary of Confirmed Cases, Recoveries and Deaths", x = data_split.i, ignore.case = TRUE)
     }else{
       find_data.i <- grep(pattern = "Summary of Cases updates by Sub-county", x = data_split.i, ignore.case = TRUE)
@@ -196,7 +199,7 @@ for(i in 10:length(files)){
     do_recovery <- FALSE
   }
   
-  if(i < 23){
+  if(i < 23 | i == 33){
     do_probable_cases <- FALSE
     do_probable_deaths <- TRUE
   }else{

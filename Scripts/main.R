@@ -50,16 +50,16 @@ if(do_plot == TRUE){
   by_date_dates <- names(by_date)
   by_date_dates <- as.POSIXct(strptime(by_date_dates, format = "%Y-%m-%d"))
   time_reg_country <- as.numeric(by_date_dates - min(by_date_dates, na.rm = TRUE), unit = "days")
-  cases_reg_country <- rollmean(as.numeric(by_date), k = 7)
-  mod2 <- lm(log(cases_reg_country) ~ time_reg_country[-c(1:6)])
+  cases_reg_country <- rollmean(as.numeric(by_date), k = 3)
+  mod2 <- lm(log(cases_reg_country) ~ time_reg_country[-c(1:2)])
   doubling_country <- log(2)/mod2$coefficients[2]
   
-  plot(by_date_dates[-c(1:6)], cases_reg_country, type = "l", bty = "n", lwd = 3, xlab = "2022", ylab = "Daily new Ebola cases (7 day avg)")
+  plot(by_date_dates[-c(1:2)], cases_reg_country, type = "l", bty = "n", lwd = 3, xlab = "2022", ylab = "Daily new Ebola cases (3 day avg)")
   
   rates <- rep(NA, length(cases_reg_country))
   for(i in 1:(length(cases_reg_country)-3)){
-    mod.i <- lm(log(cases_reg_country[i:(i+3)]) ~ time_reg_country[-c(i:6)][i:(i+3)])
+    mod.i <- lm(log(cases_reg_country[i:(i+3)]) ~ time_reg_country[-c(1:2)][i:(i+3)])
     rates[i] <- mod.i$coefficients[2]
   }
-  plot(by_date_dates[-c(1:6)], rates, type = "l", bty = "n", lwd = 3, xlab = "2022", ylab = "Growth rate (new daily cases 7-day avg.)")
+  plot(by_date_dates[-c(1:2)], rates, type = "l", bty = "n", lwd = 3, xlab = "2022", ylab = "Growth rate (new daily cases 3-day avg.)")
 }
