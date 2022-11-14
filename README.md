@@ -19,6 +19,11 @@ It's critical to point out that we haven't yet performed proper validation on th
 11. In SitRep 33, a Nanssana, Wakiso appears, but that sub-county isn't present in the shapefile. In SitRep 35, that changes to Nansana, Wakiso, which is in the shapefile. We map to Nansana.
 12. SitRep 39 does not contain information on sub-county. There was one case in Kassanda in SitRep 39 and another in SitRep 40. Based on SitRep 40, which does contain sub-county information, the case reported in SitRep 39 was either in Kalwana or Kikandwa. We put the case in SitRep 39 in Kalwana.
 13. In SitRep 40, there is a sub-county spelled BUTOLOGOA. This is almost certainly a misspelling of BUTOLOGO, as this sub-county does not appear in SitRep 40. We correct BUTOLOGOA -> BUTOLOGO and map to BUTOLOOGO.
+14. In SitRep 45, 3 confirmed cases are reported in the header. However, in the district table (there is no subcounty table) they report 4 new cases, 2 in KAS, 1 in WAK, and 1 in KLA. However, the cases in WAK and KLA do not appear in future sitreps. In addition, in SitRep 46, which does contain subcounty, they report 1 new case in KLA. Putting this all together, we record only 3 new cases in the CSV and all in KAS -> Kalwana.
+15. In SitRep 47, a new case is reported in Kyegegwa. Subcounties are not reported in SitRep 47. However, while subcounties are reported in SitRep 48, no additional cases appear in Kyegegwa relative to past sitreps. We record a case in SitRep 47 in KYE - > Kasule. However, this case does not appear in the CSV for SitRep 48.
+14. In SitRep 48, there is a Buelnga TC, which does not appear in the shapefile. Googling suggests this should be Buwenge TC. We map Buelnga to Buwenge.
+15. In SitRep 48, there is a Kimanya-Kyabakuza, which does not appear in the shapefile. However there is a Kimaanya-Kyabakuza (note the extra "a"). We map to this location.
+16. SitRep 48 is missing a row for Kirwanyi, Mubende. This is almost certainly an error in the SitRep. However, this deletion is recorded in the CSV.
 
 ## Running the code
 1. You need to create a directory in Data called "tmp" in order to run the script build_csv.R
@@ -40,6 +45,8 @@ It's critical to point out that we haven't yet performed proper validation on th
 14. Beginning with SitRep 37, Oct. 27th, we updated the geo-coding. As a result, we have two line lists for Oct 27th, one with the old geo-coding and one with the new. Going forward, we will only report the new geo-coding.
 15. SitRep 41 had to be manually entered and did not report sub-counties. However, SitRep 42 reported no new confirmed cases, so it's possible to determine the sub-county for the reported case in SitRep 41.
 16. SitRep 44 had to be manually entered, but did not report any new cases (confirmed or probable).
+17. SitReps 45, 47, and 48 had to be manually entered. 
+18. SitRep 48 contains subcounty information, but the table is broken across a page. If this persists, the code should be updated to accommodate. 
 
 # Additional license, warranty, and copyright information
 We provide a license for our code (see LICENSE) and do not claim ownership, nor the right to license, the data we have obtained. Please cite the appropriate agency, paper, and/or individual in publications and/or derivatives using these data, contact them regarding the legal use of these data, and remember to pass-forward any existing license/warranty/copyright information. THE DATA AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE DATA AND/OR SOFTWARE OR THE USE OR OTHER DEALINGS IN THE DATA AND/OR SOFTWARE.

@@ -32,6 +32,14 @@ dates <- dates[-skip2]
 skip3 <- which(dates == as.POSIXct(strptime("2022-11-04", format = "%Y-%m-%d")))
 dates <- dates[-skip3]
 
+skip4 <- which(dates == as.POSIXct(strptime("2022-11-08", format = "%Y-%m-%d")))
+dates <- dates[-skip4]
+
+skip5 <- which(dates == as.POSIXct(strptime("2022-11-09", format = "%Y-%m-%d")))
+dates <- dates[-skip5]
+
+skip6 <- which(dates == as.POSIXct(strptime("2022-11-11", format = "%Y-%m-%d")))
+dates <- dates[-skip6]
 ###########
 #Acc Funcs#
 ###########
@@ -96,6 +104,8 @@ match_subcounties <- function(subcounty_sitrep, subcounty_shp){
   subcounty_vect[which(subcounty_vect == "BAYEZA")] <- "BAGEZZA"
   subcounty_vect[which(subcounty_vect == "BAGEZA")] <- "BAGEZZA"
   subcounty_vect[which(subcounty_vect == "NANSSANA")] <- "NANSANA"
+  subcounty_vect[which(subcounty_vect == "BULENGA TC")] <- "BUWENGE TOWN COUNCIL"
+  subcounty_vect[which(subcounty_vect == "KIMANYA-KYABAKUZA")] <- "KIMAANYA-KYABAKUZA"
   subcounty_official <- subcounty_shp$Subcounty
   subcounty_official <- gsub(pattern = " DIVISION", replacement = "", x = subcounty_shp$Subcounty)
   county_official <- subcounty_shp$County
@@ -159,7 +169,11 @@ for(i in 10:length(files)){
     find_data.i <- grep(pattern = "Summary of Confirmed Cases and probable deaths by Sub-County", x = data_split.i, ignore.case = TRUE)
   }else{
     if(i > 31){
-      find_data.i <- grep(pattern = "Summary of Confirmed Cases, Recoveries and Deaths", x = data_split.i, ignore.case = TRUE)
+      if(i == 36){
+        find_data.i <- grep(pattern = " Summary table showing the distribution of cases by subcounty", x = data_split.i, ignore.case = TRUE)
+      }else{
+        find_data.i <- grep(pattern = "Summary of Confirmed Cases, Recoveries and Deaths", x = data_split.i, ignore.case = TRUE)
+      }
     }else{
       find_data.i <- grep(pattern = "Summary of Cases updates by Sub-county", x = data_split.i, ignore.case = TRUE)
     }
@@ -184,7 +198,12 @@ for(i in 10:length(files)){
   if(i < 22){
     find_data_stop.i <- grep(pattern = "Total", x = data_split.i.2, ignore.case = TRUE)
   }else{
-    find_data_stop.i <- grep(pattern = "harmonisation", x = data_split.i.2, ignore.case = TRUE)
+    if(i == 36){
+      find_data_stop.i <- grep(pattern = "Rubaga", x = data_split.i.2, ignore.case = TRUE)
+      find_data_stop.i <- find_data_stop.i + 1
+    }else{
+      find_data_stop.i <- grep(pattern = "harmonisation", x = data_split.i.2, ignore.case = TRUE)
+    }
   }
   
   if(length(find_data_stop.i) == 0){
@@ -213,6 +232,14 @@ for(i in 10:length(files)){
 
   
   data_out.i <- extract_data(data_split = data_split.i.2, data_start = find_data_start.i, data_stop = find_data_stop.i, recoveries = do_recovery, probable_cases = do_probable_cases, probable_deaths = do_probable_deaths)
+  
+  if(i == 36){
+    #the PDF switches the column order
+    hold.recover.i <- data_out.i$`Probable Cases`
+    hold.probcase.i <- data_out.i$Recoveries
+    data_out.i$Recoveries <- hold.recover.i
+    data_out.i$`Probable Cases` <- hold.probcase.i
+  }
   
   #correct division misplacement
   find_subcount_div.i <- grep(pattern = "division", x = data_out.i$`Sub-County`, ignore.case = TRUE)
@@ -256,3 +283,7 @@ for(i in 10:length(files)){
   }
 }
 
+dat.35 <- data_full[[33]]
+dat.36 <- data_full[[36]]
+mt <- match(paste0(dat.35$DISTRICT,dat.35$COUNTY, dat.35$SUBCOUNTY), paste0(dat.36$DISTRICT,dat.36$COUNTY, dat.36$SUBCOUNTY))
+dat.36 <- dat.36[mt,]

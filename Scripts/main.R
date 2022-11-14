@@ -48,9 +48,9 @@ if(do_plot == TRUE){
   
   by_date <- by(baselinelist$ID, baselinelist$Date_confirmation, length)
   by_date_dates <- names(by_date)
-  by_date_dates <- as.POSIXct(strptime(by_date_dates, format = "%Y-%m-%d"))
+  by_date_dates <- as.POSIXct(strptime(c(as.character(by_date_dates)), format = "%Y-%m-%d"))
   time_reg_country <- as.numeric(by_date_dates - min(by_date_dates, na.rm = TRUE), unit = "days")
-  cases_reg_country <- rollmean(as.numeric(by_date), k = 3)
+  cases_reg_country <- rollmean(c(as.numeric(by_date)), k = 3)
   mod2 <- lm(log(cases_reg_country) ~ time_reg_country[-c(1:2)])
   doubling_country <- log(2)/mod2$coefficients[2]
   
