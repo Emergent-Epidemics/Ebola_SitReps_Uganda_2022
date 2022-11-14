@@ -6,10 +6,10 @@ It's critical to point out that we haven't yet performed proper validation on th
 ## Known issues with the list list
 *IMPORTANT* - Current version of the line list only tracks confirmed cases (not deaths or probable cases/deaths).
 
-1. Prior to Oct 31st, the line lists contained date errors. These were not back corrected, so line lists prior to 10-31-2022 have some incorrect dates. These errors will cause inflated growth rate estimates. 
-2. The Kikandwa sub-county is listed as MITYANA (District)	MITYANA (County)	KIKANDWA (Sub-county) in the government shapefile. However, all SitReps report Kikandwa as being in the Kassanda district. There is no other Kikandwa sub-county listed in the shapefile. For now, we map to the shapefile and place Kikandwa in Mityana district. 
-3. As of Nov. 7th, SitRep 44, the Uganda MoH reports 132 confirmed cases. The line list currently has 135.
-4. As of Nov. 7th, SitRep 44, there were four instances where changes in the SitRep indicate that a previously reported, confirmed case was in fact not an Ebola case. These are a cases are: "Kassanda, Kassanda in SitRep 29", "Mubende, Kasambya in SitRep 30",  "Kassanda, Kalwana in SitRep 33",  and "Kassanda, Kikandwa in SitRep 35". That leaves a discrepancy of four cases not recorded in the line list. These are almost certainly deaths that were not previously reported as cases as we aren't tracking those yet.
+1. As of Nov. 14th, SitRep 48, the Uganda MoH reports 139 confirmed cases. The line list currently has 150.
+2. As of Nov. 14th, SitRep 48, there were seven instances where changes in the SitRep indicate that a previously reported, confirmed case was in fact not an Ebola case. These are a cases are: "Kassanda, Kassanda in SitRep 29", "Mubende, Kasambya in SitRep 30",  "Kassanda, Kalwana in SitRep 33",  and "Kikandwa, Mityana" in SitRep 34", "Kasule,Kyeggegwa" in SitRep 48, "Kassanda, Kassanda" in SitRep48, and "Rubaga Division, Kampala" in SitRep48 . That leaves a discrepancy of eleven cases not recorded in the SitReps, which appear in the line list. These are a combination of 10 new cases that appear in the sub county report for SitRep 48, which were not previously reported and almost certainly deaths that were not previously reported as cases as we aren't tracking those yet.
+3. Prior to Oct 31st, the line lists contained date errors. These were not back corrected, so line lists prior to 10-31-2022 have some incorrect dates. These errors will cause inflated growth rate estimates. 
+4. The Kikandwa sub-county is listed as MITYANA (District)	MITYANA (County)	KIKANDWA (Sub-county) in the government shapefile. However, all SitReps report Kikandwa as being in the Kassanda district. There is no other Kikandwa sub-county listed in the shapefile. For now, we map to the shapefile and place Kikandwa in Mityana district. 
 5. Gomba and Busiro are listed as sub-counties, but do not appear as sub-counties in the government shapefile and are not listed as sub-counties online. 
 6. Kiruuma and Kirwanyi are not listed a sub-counties in the government shapefile, but are listed as sub-counties in Mubende on the [Mubende gov. website](https://mubende.go.ug/lg/political-and-administrative-structure). For these two we do not have a county identified, but list them as Mubende district.
 7. There are multiple sub-counties for Kasambya, and the Eastern, Western, and Southern Districts. Currently, these are all mapped to Mubende.
@@ -24,6 +24,7 @@ It's critical to point out that we haven't yet performed proper validation on th
 14. In SitRep 48, there is a Buelnga TC, which does not appear in the shapefile. Googling suggests this should be Buwenge TC. We map Buelnga to Buwenge.
 15. In SitRep 48, there is a Kimanya-Kyabakuza, which does not appear in the shapefile. However there is a Kimaanya-Kyabakuza (note the extra "a"). We map to this location.
 16. SitRep 48 is missing a row for Kirwanyi, Mubende. This is almost certainly an error in the SitRep. However, this deletion is recorded in the CSV.
+17. SitRep 48 reports only 1 new confirmed case, but according to the subcounty table there are 10 previously unreported cases. Given the number of errors in SitRep 48, this is likely a mistake.
 
 ## Running the code
 1. You need to create a directory in Data called "tmp" in order to run the script build_csv.R
