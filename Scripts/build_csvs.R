@@ -10,13 +10,14 @@ library(lubridate)
 library(glue)
 library(maptools)
 library(rgdal)
+library(lubridate)
 
 #########
 #Globals#
 #########
 start <- as.POSIXct(strptime("2022-09-20", format = "%Y-%m-%d"))
 end <- as.POSIXct(strptime(substr(Sys.time(), 1, 10), format = "%Y-%m-%d")) 
-dates <- seq(start, end, by = 60*60*24)
+dates <- round_date(seq(start, end, by = 60*60*24), unit = "days")
 files <- list.files("../Data/PDFs/")
 save_new <- TRUE
 auto_run <- TRUE
@@ -40,6 +41,7 @@ dates <- dates[-skip5]
 
 skip6 <- which(dates == as.POSIXct(strptime("2022-11-11", format = "%Y-%m-%d")))
 dates <- dates[-skip6]
+
 ###########
 #Acc Funcs#
 ###########
