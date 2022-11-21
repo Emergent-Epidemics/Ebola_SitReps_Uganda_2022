@@ -25,6 +25,7 @@ if(do_plot == TRUE){
   library(dplyr)
   library(lme4)
   library(zoo)
+  library(lubridate)
   
   files <- list.files("../Data/CSVs")
   last_file <- read.csv(paste0("../Data/CSVs/",files[length(files)]))

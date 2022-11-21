@@ -50,7 +50,7 @@ It's critical to point out that we haven't yet performed proper validation on th
 18. SitRep 48 contains subcounty information, but the table is broken across a page. If this persists, the code should be updated to accommodate. 
 19. SitRep 49 had to be manually entered, but did contain subcounty information.
 20. SitRep 50 had to be manually entered, but the sub-county information on the case was listed in the text.
-21. SitReps 51 - 53 had to be manually entered, but reported no new cases.
+21. SitReps 51 - 56 had to be manually entered, but reported no new cases.
 
 # Additional license, warranty, and copyright information
 We provide a license for our code (see LICENSE) and do not claim ownership, nor the right to license, the data we have obtained. Please cite the appropriate agency, paper, and/or individual in publications and/or derivatives using these data, contact them regarding the legal use of these data, and remember to pass-forward any existing license/warranty/copyright information. THE DATA AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE DATA AND/OR SOFTWARE OR THE USE OR OTHER DEALINGS IN THE DATA AND/OR SOFTWARE.
