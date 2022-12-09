@@ -6,7 +6,7 @@ It's critical to point out that we haven't yet performed proper validation on th
 ## Known issues with the list list
 *IMPORTANT* - Current version of the line list only tracks confirmed and probable cases.
 
-1. As of Nov. 25th, SitRep 61, the Uganda MoH reports 141 confirmed cases. The line list currently has 212.
+1. As of DEc. 5th, SitRep 69, the Uganda MoH reports 141 confirmed cases. The line list currently has 212.
 2. Beginning with SitRep 50, a new set of sub-county information started being reported, which does not align with previous SitReps.  This includes two major changes. First, Butoloogo had previously only had a single case reported, beginning with SitRep 50 and proceeding through current SitReps (68 as of this commit) Butoloogo was reported to have 10 cases. Second, Kassanda had 2 or 5 (depending on the SitRep), but again, as of SitRep 50 (and onwards) reports 9. There were a few other smaller changes, which were probably due to prior SitReps where sub-county was not reported and could not be determined conclusively. 
 3. Prior to Oct 31st, the line lists contained date errors. These were not back corrected, so line lists prior to 10-31-2022 have some incorrect dates. These errors will cause inflated growth rate estimates. 
 4. The Kikandwa sub-county is listed as MITYANA (District)	MITYANA (County)	KIKANDWA (Sub-county) in the government shapefile. However, all SitReps report Kikandwa as being in the Kassanda district. There is no other Kikandwa sub-county listed in the shapefile. For now, we map to the shapefile and place Kikandwa in Mityana district. 
@@ -50,7 +50,7 @@ It's critical to point out that we haven't yet performed proper validation on th
 18. SitRep 48 contains subcounty information, but the table is broken across a page. If this persists, the code should be updated to accommodate. 
 19. SitRep 49 had to be manually entered, but did contain subcounty information.
 20. SitRep 50 had to be manually entered, but the sub-county information on the case was listed in the text.
-21. SitReps 51 - 68 had to be manually entered.
+21. SitReps 51 - 69 had to be manually entered.
 
 # Additional license, warranty, and copyright information
 We provide a license for our code (see LICENSE) and do not claim ownership, nor the right to license, the data we have obtained. Please cite the appropriate agency, paper, and/or individual in publications and/or derivatives using these data, contact them regarding the legal use of these data, and remember to pass-forward any existing license/warranty/copyright information. THE DATA AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE DATA AND/OR SOFTWARE OR THE USE OR OTHER DEALINGS IN THE DATA AND/OR SOFTWARE.
