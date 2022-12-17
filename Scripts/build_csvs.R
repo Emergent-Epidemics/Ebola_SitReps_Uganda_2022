@@ -48,6 +48,12 @@ dates <- dates[-skip7]
 skip8 <- which(dates == as.POSIXct(strptime("2022-12-03", format = "%Y-%m-%d")))
 dates <- dates[-skip8]
 
+skip9 <- which(dates == as.POSIXct(strptime("2022-12-06", format = "%Y-%m-%d")))
+dates <- dates[-skip9]
+
+skip10 <- which(dates %in% c(as.POSIXct(strptime("2022-12-08", format = "%Y-%m-%d")), as.POSIXct(strptime("2022-12-09", format = "%Y-%m-%d")), as.POSIXct(strptime("2022-12-10", format = "%Y-%m-%d"))))
+dates <- dates[-skip10]
+
 ###########
 #Acc Funcs#
 ###########
